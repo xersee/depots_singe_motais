@@ -24,6 +24,7 @@ public class Singe {
 		this.id = id;
 		this.nom = nom;
 		this.poids = poids;
+		this.caractere=null;
 	}
 	
 	//Constructeur avec juste le nom et l'id	
@@ -31,9 +32,20 @@ public class Singe {
 		super();
 		this.id = id;
 		this.nom = nom;
+		this.poids= 0;
+		this.caractere= null;
 		
 	}
 	
+	//Constructeur sans id	
+		public Singe(String nom, int poids, String caractere) {
+			super();
+			this.id=0;
+			this.nom = nom;
+			this.poids = poids;
+			this.caractere = caractere;
+	}
+		
 		/* ********************** Getter et Setter **************************  */
 
 	public int getId() {

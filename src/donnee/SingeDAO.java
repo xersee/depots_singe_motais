@@ -30,7 +30,7 @@ public class SingeDAO implements SingeSQL{
 		listeSingesTest.add(new Singe( 1,"César",60, "Amical"));
 		listeSingesTest.add(new Singe(2,"Arthur",45, "Aggressif"));
 		listeSingesTest.add(new Singe(3,"Hannibal",50, "Joueur"));
-		listeSingesTest.add(new Singe(4,"Minamoto",55, "5 septembre 2015"));
+		listeSingesTest.add(new Singe(4,"Minamoto",55, "refléchi"));
 		return listeSingesTest;
 	}	
 	

@@ -15,6 +15,7 @@ public class VueAjouterSinge extends Scene {
 	protected TextField valeurNom;
 	protected TextField valeurPoids;
 	protected TextField valeurCaractere;
+	protected TextField valeurId;
 	
 	private ControleurSinge controleur = null;
 	protected Button actionEnregistrerSinge = null;
@@ -45,7 +46,11 @@ public class VueAjouterSinge extends Scene {
 
 		valeurCaractere = new TextField("");
 		grilleSinge.add(new Label("caractere : "), 0, 2);
-		grilleSinge.add(valeurPoids, 1, 2);		
+		grilleSinge.add(valeurPoids, 1, 2);	
+		
+		valeurId= new TextField("");
+		grilleSinge.add(new Label("id : "), 0, 3);
+		grilleSinge.add(valeurPoids, 1, 3);	
 			
 			
 		// Todo : retirer les textes magiques
@@ -54,20 +59,21 @@ public class VueAjouterSinge extends Scene {
 		panneau.getChildren().add(this.actionEnregistrerSinge);
 	}
 	
-	public Singe demanderSinge()
-	{
-		String leNom,lePoidsTexte,lePoids,leCaractere;
-		int lePoids;
+	public Singe demanderSinge(){
+		String leNom,lePoidsTexte,leCaractere,lIdTexte;
+		int lId,lePoidsInt;
 		Singe objSinge;
 		
+		lIdTexte=this.valeurId.getText();
+		lId=Integer.parseInt(lIdTexte);
 		leNom=this.valeurNom.getText();
 		lePoidsTexte=this.valeurPoids.getText();
-		lePoids=Integer.parseInt((lePoidsTexte));
+		lePoidsInt=Integer.parseInt((lePoidsTexte));
 		leCaractere=this.valeurCaractere.getText();
 		
-		objSinge=new Singe(leNom,lePoids,leCaractere);
+		objSinge=new Singe(lId,leNom,lePoidsInt,leCaractere);
 								
-		return Singe;
+		return objSinge;
 	}
 	
 	public void setControleur(ControleurSinge controleur) {

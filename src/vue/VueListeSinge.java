@@ -40,7 +40,7 @@ public class VueListeSinge extends Scene {
 				}});
 			numero++;
 			this.grilleSinges.add(new Label(Singe.getNom()), 0, numero);
-			this.grilleSinges.add(new Label(Singe.getNaissance()), 1, numero);			
+			this.grilleSinges.add(new Label(String.valueOf(Singe.getPoids())), 1, numero);			
 			this.grilleSinges.add(actionEditerSinge, 2, numero);
 		}
 		

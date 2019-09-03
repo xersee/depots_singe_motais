@@ -2,15 +2,16 @@ package vue;
 import action.ControleurSinge;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import modele.Singe;
 
 public class VueSinge extends Scene{
 
-	protected Label valeurNom;
-	protected Label valeurCouleur;
-	protected Label valeurPoids;
-	protected Label valeurNaissance;
+	protected TextField valeurNom;
+	protected TextField valeurPoids;
+	protected TextField valeurCaractere;
+	protected TextField valeurId;
 	
 	@SuppressWarnings("unused")
 	private ControleurSinge controleur = null;	
@@ -20,29 +21,30 @@ public class VueSinge extends Scene{
 		GridPane grilleSinge = (GridPane) this.getRoot();
 
 		// https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/GridPane.html
-		valeurNom = new Label("");
+		valeurNom = new TextField();
 		grilleSinge.add(new Label("Nom : "), 0, 0);
 		grilleSinge.add(valeurNom, 1, 0);
 		
-		valeurCouleur = new Label("");
-		grilleSinge.add(new Label("Couleur : "), 0, 1);
-		grilleSinge.add(valeurCouleur, 1, 1);
+		valeurPoids = new TextField("");
+		grilleSinge.add(new Label("poids : "), 0, 1);
+		grilleSinge.add(valeurPoids, 1, 1);
 
-		valeurPoids = new Label("");
-		grilleSinge.add(new Label("Poids : "), 0, 2);
-		grilleSinge.add(valeurPoids, 1, 2);		
-
-		valeurNaissance = new Label("");
-		grilleSinge.add(new Label("Naissance : "), 0, 3);
-		grilleSinge.add(valeurNaissance, 1, 3);				
+		valeurCaractere = new TextField("");
+		grilleSinge.add(new Label("caractere : "), 0, 2);
+		grilleSinge.add(valeurPoids, 1, 2);	
+		
+		valeurId= new TextField("");
+		grilleSinge.add(new Label("id : "), 0, 3);
+		grilleSinge.add(valeurPoids, 1, 3);					
 	}
 	
 	public void afficherSinge(Singe Singe)
 	{
+		
+		
+		this.valeurPoids.setText(String.valueOf(Singe.getPoids()));
+		this.valeurCaractere.setText(Singe.getCaractere());
 		this.valeurNom.setText(Singe.getNom());
-		this.valeurCouleur.setText(Singe.getCouleur());
-		this.valeurPoids.setText(Singe.getPoids());
-		this.valeurNaissance.setText(Singe.getNaissance());	
 	}
 	
 	

@@ -14,9 +14,9 @@ import modele.Singe;
 public class VueEditerSinge extends Scene {
 
 	protected TextField valeurNom;
-	protected TextField valeurCouleur;
 	protected TextField valeurPoids;
-	protected TextField valeurNaissance;
+	protected TextField valeurCaractere;
+	protected TextField valeurId;
 	
 	private ControleurSinge controleur = null;
 	protected Button actionEnregistrerSinge = null;
@@ -40,21 +40,22 @@ public class VueEditerSinge extends Scene {
 			}});
 		
 		// https://docs.oracle.com/javase/8/javafx/api/javafx/scene/layout/GridPane.html
+		
 		valeurNom = new TextField();
 		grilleSinge.add(new Label("Nom : "), 0, 0);
 		grilleSinge.add(valeurNom, 1, 0);
 		
-		valeurCouleur = new TextField("");
-		grilleSinge.add(new Label("Couleur : "), 0, 1);
-		grilleSinge.add(valeurCouleur, 1, 1);
-
 		valeurPoids = new TextField("");
-		grilleSinge.add(new Label("Poids : "), 0, 2);
-		grilleSinge.add(valeurPoids, 1, 2);		
+		grilleSinge.add(new Label("poids : "), 0, 1);
+		grilleSinge.add(valeurPoids, 1, 1);
 
-		valeurNaissance = new TextField("");
-		grilleSinge.add(new Label("Naissance : "), 0, 3);
-		grilleSinge.add(valeurNaissance, 1, 3);				
+		valeurCaractere = new TextField("");
+		grilleSinge.add(new Label("caractere : "), 0, 2);
+		grilleSinge.add(valeurPoids, 1, 2);	
+		
+		valeurId= new TextField("");
+		grilleSinge.add(new Label("id : "), 0, 3);
+		grilleSinge.add(valeurPoids, 1, 3);				
 	
 		// Todo : retirer les textes magiques
 		panneau.getChildren().add(new Label("Editer un Singe")); // Todo : créer un sous-type de Label ou Text pour les titres
@@ -64,21 +65,31 @@ public class VueEditerSinge extends Scene {
 	
 	public void afficherSinge(Singe Singe)
 	{
+		//a regarder => affichage?
+		
+		
 		this.idSinge = Singe.getId();
+		this.valeurPoids.setText(String.valueOf(Singe.getPoids()));
+		this.valeurCaractere.setText(Singe.getCaractere());
 		this.valeurNom.setText(Singe.getNom());
-		this.valeurCouleur.setText(Singe.getCouleur());
-		this.valeurPoids.setText(Singe.getPoids());
-		this.valeurNaissance.setText(Singe.getNaissance());
 	}
 		
 	public Singe demanderSinge()
 	{
-		Singe Singe = new Singe(this.valeurNom.getText(), 
-								this.valeurCouleur.getText(), 
-								this.valeurPoids.getText(), 
-								this.valeurNaissance.getText());
-		Singe.setId(idSinge);
-		return Singe;
+		String leNom,lePoidsTexte,leCaractere,lIdTexte;
+		int lId,lePoidsInt;
+		Singe objSinge;
+		
+		lIdTexte=this.valeurId.getText();
+		lId=Integer.parseInt(lIdTexte);
+		leNom=this.valeurNom.getText();
+		lePoidsTexte=this.valeurPoids.getText();
+		lePoidsInt=Integer.parseInt((lePoidsTexte));
+		leCaractere=this.valeurCaractere.getText();
+		
+		objSinge=new Singe(lId,leNom,lePoidsInt,leCaractere);
+								
+		return objSinge;
 	}
 	
 	public void setControleur(ControleurSinge controleur) {
